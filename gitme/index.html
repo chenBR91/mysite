@@ -2,10 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>my title js</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello world</h1>
+
+    <div class="test">h2</div>
+
+    <ul></ul>
+
+    <form action="http://httpbin.org/get" method="get">
+        <label for="youName">Insert your name:</label>
+        <input type="text" name="YouName" id="youName" required>
+        <button>Send to server</button>
+    </form>
+
+    <br>
+
+    <form action="http://httpbin.org/get" method="get">
+        <label for="cars">Choose option:</label>
+        <select name="cars" id="cars">
+            <option value="car">car</option>
+            <option value="comp">comp</option>
+            <option value="python">python</option>
+            <option value="javascript">javascript</option>
+        </select>
+        <button>Send option</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <div class="el"></div>
+
+    <button onclick="makeRequest()" type="button">Make a request</button>
+
+    <script>
+    function makeRequest() {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    alert(httpRequest.responseText);
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+        };
+        httpRequest.open('GET', 'test.html');
+        httpRequest.send();
+    }
+    </script>
+
+
+    <script src="main.js"></script>
 </body>
 </html>
